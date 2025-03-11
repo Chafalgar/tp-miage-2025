@@ -22,20 +22,24 @@ import org.springframework.web.bind.annotation.RestController;
 public class TodoListController {
 
 	private static final String LATE = "[LATE!]";
-	private TodoItemRepository todoItemRepository;
+	private final TodoItemRepository todoItemRepository;
 
 	public TodoListController(TodoItemRepository todoItemRepository) {
 		super();
 		this.todoItemRepository = todoItemRepository;
 	}
-	
-	public TodoListController() {
-		super();		
-	}
+
 
 	@PostMapping("/todos")
 	@ResponseStatus(code = HttpStatus.CREATED)
+
+
 	public void createTodoItem(@RequestBody TodoItem todoItem) {
+
+
+
+		todoItemRepository.save(todoItem);
+
 		// Code à compléter
 		// ...
 	}

@@ -74,19 +74,19 @@ docker run -it -e POSTGRES_PASSWORD=password -p 5432:5432 postgres
 ```
 *Expliquer cette ligne de commande (y compris les options utilisées)*  
 
-docker run → Lance un nouveau conteneur.  
+docker run ->  Lance un nouveau conteneur.  
 
--it → Mode interactif (affiche les logs).  
+-it -> Mode interactif (affiche les logs).  
 
--e POSTGRES_PASSWORD=password → Définit le mot de passe pour l’utilisateur postgres.  
+-e POSTGRES_PASSWORD=password -> Définit le mot de passe pour l’utilisateur postgres.  
 
--p 5432:5432 → Expose le port 5432 de PostgreSQL pour y accéder depuis l’hôte.  
+-p 5432:5432 -> Expose le port 5432 de PostgreSQL pour y accéder depuis l’hôte.  
 
-Le premier 5432: C'est le port sur l'hôte (votre machine).  
+Le premier 5432 -> C'est le port sur l'hôte (votre machine).  
 
-Le deuxième 5432: C'est le port dans le conteneur où PostgreSQL écoute par défaut.  
+Le deuxième 5432 -> C'est le port dans le conteneur où PostgreSQL écoute par défaut.  
 
-postgres → Image Docker officielle de PostgreSQL.  
+postgres -> Image Docker officielle de PostgreSQL.  
 
 
 * Compléter le code manquant dans la méthode `TodoListController.createTodoItem()`

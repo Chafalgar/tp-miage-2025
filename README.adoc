@@ -132,7 +132,17 @@ Source : http://leanpub.com/get-your-hands-dirty-on-clean-architecture[Tom Hombe
   - la couche `application` qui contient tous les contrats : ports (interfaces) et les implémentations des ports d'entrée (ou "use case") et qui servent à orchestrer les entités.
   - la couche `domain` qui contient les entités (au sens DDD, pas au sens JPA). En général des classes complexes (méthodes riches, relations entre les entités)
 
-*Rappeler en quelques lignes les grands principes de l'architecture hexagonale.*
+*Rappeler en quelques lignes les grands principes de l'architecture hexagonale.* 
+L’architecture hexagonale est découpée en plusieurs couches : une couche application et une couche domaine, avec une séparation stricte entre les aspects techniques et métier.
+Elle repose sur deux types d’adaptateurs :
+•	Les adaptateurs « in » : ils sollicitent directement le domaine via des ports d’entrée.
+•	Les adaptateurs « out » : ils interagissent indirectement avec le domaine à travers des ports de sortie.
+Le principe de l’inversion de dépendance y est central : toutes les dépendances sont orientées vers le domaine. Les adaptateurs ne connaissent que les ports du domaine. Le port d’entrée (port in) sert de point d’accès au domaine et est implémenté par celui-ci, tandis que le port de sortie (port out) représente une fonctionnalité d’infrastructure requise par le domaine et est pris en charge par les adaptateurs.
+Cette architecture présente plusieurs avantages :
+•	Elle permet d’isoler les aspects techniques des aspects fonctionnels.
+•	Elle favorise une approche objet riche et respecte l’inversion des dépendances.
+•	Elle facilite les tests en isolation, avec des tests unitaires et des spécifications exécutables pour les aspects fonctionnels, et des tests d’intégration pour les aspects techniques.
+Toutefois, un inconvénient subsiste : la possibilité de duplications.
 
 Compléter ce code avec une fonctionnalité de création de `TodoItem`  persisté en base et appelé depuis un endpoint REST `POST /todos` qui :
 

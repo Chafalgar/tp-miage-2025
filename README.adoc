@@ -169,6 +169,8 @@ _Temps estimé : 20 mins_
 
 *Quels types de tests devra-t-on écrire pour les adaptateurs ?* 
 
+Les adaptateurs peuvent être testés via des tests unitaires (notamment pour la persistence), des tests d’intégration (pour les endpoints REST), et éventuellement des tests de contrat pour vérifier le respect des interfaces définies par le domaine.
+
 *S'il vous reste du temps, écrire quelques-uns de ces types de test.*
 
 [TIP]

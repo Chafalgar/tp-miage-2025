@@ -11,12 +11,19 @@ import com.acme.todolist.domain.TodoItem;
 @Component
 public class AddTodoItemService implements AddTodoItem {
 
-	private UpdateTodoItem updateTodoItem;
+	private final UpdateTodoItem updateTodoItem;
+	private TodoItemRepository todoItemRepository;
 
-	//A compléter
+	@Inject
 	public AddTodoItemService(UpdateTodoItem updateTodoItem) {
+		this.updateTodoItem = updateTodoItem;
 	}
 
-	//A compléter	
+	@Override
+	public void addTodoItem(TodoItem item) {
+		updateTodoItem.saveTodoItem(item);
+
+	}
+
 
 }

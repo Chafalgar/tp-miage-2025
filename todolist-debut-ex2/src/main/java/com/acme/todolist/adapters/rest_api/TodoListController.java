@@ -4,9 +4,8 @@ import java.util.List;
 
 import javax.inject.Inject;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import com.acme.todolist.application.port.in.AddTodoItem;
+import org.springframework.web.bind.annotation.*;
 
 import com.acme.todolist.application.port.in.GetTodoItems;
 import com.acme.todolist.domain.TodoItem;
@@ -18,17 +17,20 @@ import com.acme.todolist.domain.TodoItem;
  *
  */
 @RestController
+@RequestMapping("/todos")
 public class TodoListController {
-	
-	
+
+
 	private GetTodoItems getTodoItemsQuery;
-	// A compléter
-	
+	private AddTodoItem addTodoItemsQuery;
+
 	
 	@Inject
-	//A compléter
-	public TodoListController(GetTodoItems getTodoItemsQuery ) {
+
+	public TodoListController(GetTodoItems getTodoItemsQuery, AddTodoItem addTodoItemCommand ) {
+
 		this.getTodoItemsQuery = getTodoItemsQuery;
+		this.addTodoItemCommand=addTodoItemCommand;
 	}
 	
 	@GetMapping("/todos")
@@ -38,9 +40,11 @@ public class TodoListController {
 	
 	
 	// Endpoint de type POST vers "/todos"
-	// A compléter
+
+	@PostMapping("/todos")
+	@ResponseStatus(HttpStatus.CREATED)
 	public void ajouterItem(@RequestBody TodoItem item) {
-		// A compléter		
+		this.addTodoItemQuery.addTodoItem(item);
 	}
 	
 	

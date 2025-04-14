@@ -3,9 +3,9 @@
 ## Nom du(des) étudiant(e)(s) de ce monôme/binôme 
 WARNING: NE PAS OUBLIER DE MENTIONNER LES DEUX NOMS SI VOUS ETES EN BINOME!
 
-#XXX# (et #YYY#)
+Charlène JAN et Inès MAUGET
 
-Commentaires éventuels des étudiants : #XXXXXX#
+Commentaires éventuels des étudiants : Chafalgar est le profil gitHub de Charlène JAN
 
 ## Pré-requis 
 

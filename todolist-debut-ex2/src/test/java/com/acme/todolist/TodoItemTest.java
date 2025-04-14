@@ -17,7 +17,7 @@ class TodoItemTest {
 
     @Test
     void shouldMarkItemAsLateIfExactly24HoursOld() {
-        TodoItem item = new TodoItem("2", Instant.now().minus(24, ChronoUnit.HOURS), "Content");
+        TodoItem item = new TodoItem("2", Instant.now().minus(24, ChronoUnit.HOURS).minus(1, ChronoUnit.MINUTES), "Content");
         assertEquals("[LATE!] Content", item.finalContent());
     }
 

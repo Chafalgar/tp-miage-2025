@@ -12,7 +12,6 @@ import com.acme.todolist.domain.TodoItem;
 public class AddTodoItemService implements AddTodoItem {
 
 	private final UpdateTodoItem updateTodoItem;
-	private TodoItemRepository todoItemRepository;
 
 	@Inject
 	public AddTodoItemService(UpdateTodoItem updateTodoItem) {
@@ -21,7 +20,7 @@ public class AddTodoItemService implements AddTodoItem {
 
 	@Override
 	public void addTodoItem(TodoItem item) {
-		updateTodoItem.saveTodoItem(item);
+		updateTodoItem.storeNewTodoItem(item);
 
 	}
 

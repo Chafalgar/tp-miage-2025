@@ -21,16 +21,13 @@ import com.acme.todolist.domain.TodoItem;
 public class TodoListController {
 
 
-	private GetTodoItems getTodoItemsQuery;
-	private AddTodoItem addTodoItemsQuery;
+	private final GetTodoItems getTodoItemsQuery;
+	private final AddTodoItem addTodoItemsQuery;
 
-	
 	@Inject
-
-	public TodoListController(GetTodoItems getTodoItemsQuery, AddTodoItem addTodoItemCommand ) {
-
+	public TodoListController(GetTodoItems getTodoItemsQuery, AddTodoItem addTodoItemsQuery) {
 		this.getTodoItemsQuery = getTodoItemsQuery;
-		this.addTodoItemCommand=addTodoItemCommand;
+		this.addTodoItemsQuery = addTodoItemsQuery;
 	}
 	
 	@GetMapping("/todos")
@@ -42,10 +39,10 @@ public class TodoListController {
 	// Endpoint de type POST vers "/todos"
 
 	@PostMapping("/todos")
-public ResponseEntity<TodoItem> ajouterItem(@RequestBody TodoItem item) {
-    addTodoItemsQuery.addTodoItem(item);
-    return ResponseEntity.status(HttpStatus.CREATED).build();
-}
+	public ResponseEntity<TodoItem> ajouterItem(@RequestBody TodoItem item) {
+		addTodoItemsQuery.addTodoItem(item);
+		return ResponseEntity.status(HttpStatus.CREATED).build();
+	}
 
 	
 	

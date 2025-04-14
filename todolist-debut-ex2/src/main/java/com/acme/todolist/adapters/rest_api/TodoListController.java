@@ -42,10 +42,11 @@ public class TodoListController {
 	// Endpoint de type POST vers "/todos"
 
 	@PostMapping("/todos")
-	@ResponseStatus(HttpStatus.CREATED)
-	public void ajouterItem(@RequestBody TodoItem item) {
-		this.addTodoItemQuery.addTodoItem(item);
-	}
+public ResponseEntity<TodoItem> ajouterItem(@RequestBody TodoItem item) {
+    addTodoItemsQuery.addTodoItem(item);
+    return ResponseEntity.status(HttpStatus.CREATED).build();
+}
+
 	
 	
 }
